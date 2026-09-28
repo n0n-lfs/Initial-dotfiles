@@ -1,0 +1,47 @@
+-- ~/.config/nvim/lua/plugins/gruvbox.lua
+return {
+  'ellisonleao/gruvbox.nvim',
+  priority = 1000,
+  lazy = false,
+  config = function()
+    require('gruvbox').setup({
+      terminal_colors = true,
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      contrast = '',
+      transparent_mode = false,
+
+      -- Кастомная палитра
+      palette = {
+        dark0 = '#000000',      -- был #282828 → теперь чёрный
+        dark1 = '#000000',
+        light1 = '#ffffff',     -- был #ebdbb2 → теперь белый
+      },
+
+      -- Если palette недостаточно, дублируем через overrides
+      overrides = {
+        Normal = { bg = '#000000', fg = '#ffffff' },
+        NormalFloat = { bg = '#000000', fg = '#ffffff' },
+        SignColumn = { bg = '#000000' },
+        LineNr = { fg = '#665c54', bg = '#000000' },
+        CursorLine = { bg = '#1a1a1a' },
+        CursorLineNr = { fg = '#fabd2f', bg = '#000000' },
+        StatusLine = { bg = '#000000', fg = '#ffffff' },
+        StatusLineNC = { bg = '#000000', fg = '#a89984' },
+        Pmenu = { bg = '#000000', fg = '#ffffff' },
+        PmenuSel = { bg = '#504945', fg = '#ffffff' },
+        Visual = { bg = '#504945' },
+      },
+    })
+
+    vim.cmd('colorscheme gruvbox')
+  end,
+}
